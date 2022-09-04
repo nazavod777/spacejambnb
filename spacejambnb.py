@@ -26,7 +26,7 @@ def send_tx(private_key: str):
                 'nonce': w3.eth.getTransactionCount(address)
             })
 
-        while w3.eth.get_block('latest')['timestamp']-time_median < START_SALE:
+        while w3.eth.get_block('latest')['timestamp']+time_median < START_SALE:
             pass
 
         signed_txn = w3.eth.account.signTransaction(transaction,
